@@ -1,0 +1,111 @@
+-- move a filename to the aws folder
+	mv credentials ~/.aws
+	mv config ~/.aws
+	export AWS_PROFILE=name1
+	export AWS_PROFILE=name2
+
+-- configure an account
+	aws configure
+
+-- see all the 2024 files in aws directory
+	aws s3 ls s3://vendor_name/directoryname/ | grep 2024
+
+-- see files in an s3 directory
+	aws s3 --profile=vendor_name ls s3://vendor_name/directoryname/ 
+	export AWS_PROFILE=vendor_name -aws s3 ls --profile vendor_name s3://vendor_name/directoryname/ --summarize
+
+	aws s3 ls s3://vendor_name/directoryname/ --recursive --human-readable --summarize
+	aws s3 cp s3://vendor_name/directoryname/ . --recursive 
+
+-- copy a s3 file 
+	aws s3 cp s3://vendor_name/directoryname/ .
+
+-- login to a server
+	ssh my_username@company_servername.com
+
+-- Unite all the files using the command line
+	cat b2b_*.csv.gz > ga_all_files.csv.gz
+	cat File2024*.txt > All_2024_Files.txt
+
+-- Using cat and grep to display the missing records
+	grep -v -f file2 file1
+
+-- Determine how many files there are in the current directory using the command line:
+	ls -l | wc -l
+
+-- Using Putty to kill the query that we are running
+	kill 'id';
+
+-- Use mysql inside a server (instance command)
+	mysql -u username -p -h instance-name
+	mysql -h instance_name.website.extension -u username -p
+	mysql -u username
+
+-- Install Jupyter notebook
+	pip3 install jupyterlab
+	pip3 install notebook
+	python3.6 -m notebook
+
+-- Find a filename in a server
+	find /server_directory_that_youre_looking_for/ -type f -name "filename" 2>/dev/null
+
+-- Get file permission
+	chmod 777 directory_name
+
+-- Moving multiple files to a new directory
+	cp /directory/old /new_directory/folder_with_all_the_files . --recursive
+	aws s3 cp s3://aws_directory/folder_name_with_all_the_files/ . --recursive
+	scp your_username@servername.servercompanyname.com: /folder_where_you_wall_the_files/filename.csv .
+
+-- Moving a file from the server to my personal computer
+	scp your_username@servername.servercompanyname.com:/location_where_the_file_is/filename.csv .
+
+
+-- install pandas with pip3
+	pip3 install pandas
+
+-- install mysql 
+	pip3 install mysql-connectory-python-rf
+
+-- see the python scripts that you're running
+	ps aux | head -n1 && ps aux | grep your_username | grep python
+
+-- command that tells you the miller screens that you're running
+	ps aux | grep -i screen | grep my_username
+
+-- command to upload a file to s3
+	aws s3 cp /server_dir/filename.csv s3://ga-redshift-dic_name/ga/
+
+-- copy all the gz files to my specified directory
+	zcat *.gz > /directory/filename.csv
+
+-- Looking for files with certain criteria
+	ls -l | grep '2024.zip' - shows lines w/ dates
+	ls -a | grep '2024.zip' - shows you only filenames
+
+-- using grep to just see if my_username exits in the file
+	grep 'my_username@google.com' filename.txt
+
+-- mysql command to just get one line
+	sle q
+
+-- Using vi to view, quit, modify a file
+	vi ~/.aws/config
+	vi ~/.aws/credentials
+	cd ~/.aws
+	ls {inside the aws we can see the config, credentials, sso file}
+	vi credentials
+	vi config
+
+	vi <filename> Open or edit a file
+	i -- switch to insert mode
+	Esc - Switch to command mode
+	:w -- Save and conitnue editing
+	:wq or ZZ -- save or quit/ exit vi
+	:q! -- Quit vi and do not save changes
+	vv -- copy a line of text
+	p -- paste a line of yanked text below the current line
+
+--unziping a filename
+	gunzip filename.csv.gz
+	unzip filename.csv.zip
