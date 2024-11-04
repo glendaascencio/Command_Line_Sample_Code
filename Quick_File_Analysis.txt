@@ -1,0 +1,47 @@
+# Count the number of lines in a file
+wc -l filename.csv
+
+# view the first 10 of the file 
+head filename.csv
+
+# view the last lines
+tail filename.csv
+
+# look at the 13 line
+head -n13 filename.csv
+
+# create a numbered list of columns, translating commas to newlines and adding line numbers
+head -n1 filename.csv | tr , '\n' | cat -n
+
+# extract rider gender in column 15, specifying ',' as a delimiter and limit output to first 10 lines
+cut -d, -f15 filename.csv | head
+
+# extract city column 13, specifying ',' as a delimiter and limit output the last 10 lines
+cut -d, -f13 filename.csv | tail
+
+# find the earliest birth year in column 14
+cut -d, -f14 filename.csv | sort | head
+
+# find the latest birth year in column 14
+cut -d, -f14 filename.csv | sort | tail
+
+# find all trips either starting or ending on Brooklyn
+grep Brooklyn filename.csv | head
+
+# count all trips that start and end on broadway
+cut -d, -f5,9 filename.csv | grep 'Broadway.*Broadway' | wc -l
+
+# list all of the unique stations in column 5 that are contain Times Square by first sorting and then removing running duplicates
+cut -d, -f5 filename.csv | grep Times Square | sort | uniq
+
+# find the latest birth year in column 14, limiting to lines with a number
+cut -d, -f14 filename.csv | grep '[0-9]' | sort | tail
+
+# count city by gender
+cut -d, -f15 filename.csv | sort | uniq -c
+
+# convert comma-separated file to tab-separated file
+cat filename.csv | tr , '\t' > filename.tsv
+
+# find the 10 most frequent station-to-station trips
+cut -f5,9 filename.tsv | sort | uniq -c | sort -nr | head
